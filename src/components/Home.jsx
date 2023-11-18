@@ -1,11 +1,12 @@
 'use client'
 
 import React, { useState } from "react";
-import Image from "next/image"; // Import Next.js Image component
+import Image from "next/image";
 // import { motion } from "framer-motion";
 import gif from '../Photos/remove.bg.gif';
 
 export default function BgRemover() {
+  
   const [image, setImage] = useState(null);
   const [bgRemove, setBgRemove] = useState(null);
   const [loading, setLoading] = useState(false);

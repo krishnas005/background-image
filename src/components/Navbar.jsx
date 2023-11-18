@@ -1,13 +1,12 @@
-'use client'
+'use client';
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const links = [
-  { to: '/', text: 'Home', className: "mr-4 text-[16px] cursor-pointer hover:text-yellow-300" },
-  { to: '#howToUse', text: 'How to Use', className: "mr-4 text-[16px] cursor-pointer hover:text-yellow-300" },
-  { to: '#Demo', text: 'Demo', className: "mr-4 text-[16px] cursor-pointer hover:text-yellow-300" },
-  { to: '#GetStarted', text: 'Get Started', className: "mr-4 text-[16px] cursor-pointer hover:text-yellow-300" }
+  { to: '/', text: 'BGSTYLE', className: "mr-4 text-[16px] cursor-pointer hover:text-yellow-300 text-blue-600 font-extrabold text-xl ml-14 pl-8" },
+  { to: '#howToUse', text: 'How to Use', className: "mr-4 text-[16px] cursor-pointer hidden hover:text-yellow-300 sm:inline-block md:inline-block lg:inline-block" },
+  { to: '#Demo', text: 'Demo', className: "mr-4 text-[16px] cursor-pointer hover:text-yellow-300 hidden sm:inline-block md:inline-block lg:inline-block" },
+  { to: '#GetStarted', text: 'Get Started', className: "mr-4 text-[16px] cursor-pointer hidden hover:text-yellow-300 sm:inline-block md:inline-block lg:inline-block" }
 ];
 
 const Navbar = () => {
@@ -35,11 +34,9 @@ const Navbar = () => {
           <ul className="flex items-center gap-8 justify-center py-4">
             {links.map((l, index) => (
               <li key={index}>
-                {/* <Link > */}
                   <a href={l.to} className={l.className}>
                     {l.text}
                   </a>
-                {/* </Link> */}
               </li>
             ))}
           </ul>

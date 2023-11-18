@@ -1,7 +1,6 @@
 'use client'
 
-import Link from 'next/link';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub, FaInstagram } from 'react-icons/fa';
+import { FaLinkedinIn, FaGithub, FaInstagram } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 
 const Footer = () => {
@@ -9,6 +8,7 @@ const Footer = () => {
   const router = useRouter();
 
   const scrollToSection = (id) => {
+
     const element = document.getElementById(id.substring(1));
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -18,7 +18,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#f6f6f6] text-gray-800 px-4 py-6 md:px-16">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 " >
           <div>
             <h3 className="text-xl font-bold mb-4 text-yellow-400">About Us</h3>
             <p className="text-gray-600">

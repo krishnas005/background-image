@@ -1,9 +1,9 @@
 
 // import { motion } from 'framer-motion';
 import Image from 'next/image';
-import bg1 from '../Photos/image.jpg'
-import bg2 from '../Photos/removed_background.jpg';
-import bg3 from '../Photos/removed_background-removebg-preview.jpg';
+import bg1 from '../Photos/Imgbg.webp'
+import bg2 from '../Photos/removed_background.png';
+import bg3 from '../Photos/removed_background-removebg-preview (1).jpg';
 
 const Demo = () => {
   return (
@@ -28,8 +28,8 @@ const Demo = () => {
                 src={bg1}
                 alt="Demo Image 1"
                 className="object-cover rounded-lg"
-                width={400} // Set the desired width
-                height={300} // Set the desired height
+                width={400}
+                height={300}
               />
             </div>
           </div>

@@ -10,7 +10,8 @@ export default function Page() {
 
   const logout = async () => {
     try {
-      await fetch('http://localhost:3000/api/users/logout', {
+      await fetch('https://background-image.vercel.app/api/users/logout', {
+        // http://localhost:3000/api/users/logout
         method: 'POST',
       });
       alert('Logout successful');

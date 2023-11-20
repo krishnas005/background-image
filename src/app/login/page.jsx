@@ -78,7 +78,7 @@ const LoginPage = () => {
         </div>
         <div className='text-center'><button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Login</button></div>
       </form>
-      <div className='text-center mt-4'><span>Don't have an account?</span><Link className='text-blue-600' href={'/signup'}> Create an account</Link></div>
+      <div className='text-center mt-4'><span>Don&apos;t have an account?</span><Link className='text-blue-600' href={'/signup'}> Create an account</Link></div>
     </div>
     </div>
     </>

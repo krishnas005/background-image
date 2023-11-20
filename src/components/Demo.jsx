@@ -1,7 +1,7 @@
 
 // import { motion } from 'framer-motion';
 import Image from 'next/image';
-import bg1 from '../Photos/Imgbg.webp'
+import bg1 from '../Photos/ezgif.com-webp-to-jpg.jpg'
 import bg2 from '../Photos/removed_background.png';
 import bg3 from '../Photos/removed_background-removebg-preview (1).jpg';
 

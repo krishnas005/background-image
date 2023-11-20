@@ -22,7 +22,7 @@ const LoginPage = () => {
     }
 
     try {
-        const res = await fetch('https://background-image.vercel.app/api/users/signup', {
+        const res = await fetch('https://background-image.vercel.app/api/users/login', {
           // http://localhost:3000/api/users/login
         method: 'POST',
         headers: {

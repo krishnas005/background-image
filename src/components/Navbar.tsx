@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 const links = [
-  { to: '/', text: 'BGSTYLE', className: "mr-4 text-[16px] cursor-pointer hover:text-yellow-300 text-blue-600 font-extrabold text-xl ml-14 pl-8" },
+  { to: '/', text: 'BGSTYLE', className: "mr-4 text-[16px] cursor-pointer hover:text-yellow-300 text-blue-600 font-extrabold text-xl " },
   { to: '#howToUse', text: 'How to Use', className: "mr-4 text-[16px] hover:text-yellow-300 cursor-pointer hidden sm:inline-block md:inline-block lg:inline-block" },
   { to: '#Demo', text: 'Demo', className: "mr-4 text-[16px] cursor-pointer hover:text-yellow-300 hidden sm:inline-block md:inline-block lg:inline-block" },
   { to: '#GetStarted', text: 'Get Started', className: "mr-4 text-[16px] hover:text-yellow-300 cursor-pointer hidden sm:inline-block md:inline-block lg:inline-block" },

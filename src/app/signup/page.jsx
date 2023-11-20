@@ -15,7 +15,6 @@ const SignupPage = () => {
         password: ""
     })
 
-    const [ButtonDisabled,setButtonDisabled] = React.useState(false);
     const [loading,setloading] = React.useState(false);
 
     const onSignup = async (e) => {
@@ -46,21 +45,14 @@ const SignupPage = () => {
         }
     };
 
-    useEffect(() => {
-        if(user.email.length > 0 && user.password.length > 0 && user.username.length > 0){
-            setButtonDisabled(false)
-        } else {
-            setButtonDisabled(true)
-        }
-    },[user]);
-
     return (
     <>
-    <div className='pb-14'>
+    <div className='pb-14 mb-10'>
         <Navbar/>
     </div>
-    <div className="max-w-md mx-auto mt-10 p-6 border rounded shadow-lg">
-        <h1 className="text-2xl font-bold mb-4 text-center">{loading ? 'Loading' : 'SignUp'}</h1>
+    <div className='pt-5'>
+    <div className="max-w-md mx-auto mt-10 p-6 border rounded shadow-lg bg-gray-100 ">
+        <h1 className="text-2xl font-bold mb-4 text-center text-blue-800">{loading ? 'Loading' : 'Sign Up'}</h1>
         <form onSubmit={onSignup}>
         <div className="mb-4">
             <label htmlFor="email" className="block mb-1">Email:</label>
@@ -99,10 +91,11 @@ const SignupPage = () => {
             />
         </div>
         <div className='text-center'>
-            <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">{ButtonDisabled ? "You can't SignUp" : "Signup"}</button>
+            <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Signup</button>
         </div>
-        <Link href={'/login'}>Login</Link>
+        <div className='text-center mt-4'><span>Already have an account?</span><Link className='text-blue-600' href={'/login'}> Login</Link></div>
         </form>
+    </div>
     </div>
     </>
     );

@@ -1,13 +1,17 @@
+
 import { connect } from "@/bin/dbConfig";
 import User from '@/models/userModel';
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import bcryptjs from 'bcryptjs';
+import toast from 'react-hot-toast';
+
 
 async function createUser(username, email, password) {
   const user = await User.findOne({ email });
 
   if (user) {
     throw new Error("User already exists");
+    toast.error('User already exists');
   }
 
   const salt = await bcryptjs.genSalt(10);

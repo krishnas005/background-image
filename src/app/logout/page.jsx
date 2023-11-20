@@ -23,7 +23,8 @@ export default function Page() {
 
   const getUserDetails = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/users/me');
+      const response = await fetch('https://background-image.vercel.app/api/users/me');
+      //  http://localhost:3000/api/users/me
       if (!response.ok) {
         throw new Error('Failed to fetch user details');
       }

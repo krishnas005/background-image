@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { UserAuth, userAuth } from '../context/AuthContext';
+import { UserAuth } from '../context/AuthContext';
 import { FaRegUserCircle } from "react-icons/fa";
 
 const links = [

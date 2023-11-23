@@ -22,8 +22,8 @@ const SignupPage = () => {
         try {
             setloading(true);
             // const response = await axios.post('/api/users/signup',user);
-            const res = await fetch('https://background-image.vercel.app/api/users/signup', {
-                // http://localhost:3000/api/users/signup
+            // const res = await fetch('https://background-image.vercel.app/api/users/signup', {
+            const res = await fetch('http://localhost:3000/api/users/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
 import { connect } from '@/bin/dbConfig';
 import User from '@/models/userModel';

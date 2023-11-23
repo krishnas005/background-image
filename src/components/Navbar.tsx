@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const links = [
   { to: '/', text: 'BGSTYLE', className: "mr-4 text-[16px] cursor-pointer hover:text-yellow-300 text-blue-600 font-extrabold text-xl " },
@@ -10,6 +11,8 @@ const links = [
 ];
 
 const Navbar = () => {
+
+  const path = usePathname();
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -42,8 +45,10 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="flex items-center gap-4">
-            <a href="/signup" className="text-[16px] cursor-pointer hover:text-yellow-300">Register</a>
-            <a href="/login" className="text-[16px] cursor-pointer hover:text-yellow-300">Login</a>
+            {/* <a href="/signup" className="text-[16px] cursor-pointer hover:text-yellow-300">Register</a> */}
+            <a href="/login" className={`${path === '/login' || path === '/signup' ? 'hidden' : 'text-[16px] cursor-pointer px-4 py-2 border-2 border-yellow-400 rounded-lg hover:text-yellow-600'}`}>Login</a>
+
+            {/*  */}
           </div>
         </div>
       </div>

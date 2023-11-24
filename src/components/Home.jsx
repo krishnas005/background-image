@@ -69,8 +69,8 @@ export default function BgRemover() {
         </div>
         <div className="mt-4 md:mt-0">
           <div className="">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-yellow-400">Remove the <br />background from <br />images for free.</h1>
-            <p className='text-[14px] text-gray-500 mt-4'>Remove background from images of humans, animals, or objects and<br /> download high-resolution images for free.</p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-yellow-400">Remove the <br /><span className='text-blue-500'>background</span> from <br />images <span className="text-blue-500">for free.</span></h1>
+            <p className='text-[14px] text-gray-600 mt-4'>Remove background from images of humans, animals, or objects and<br /> download high-resolution images for free.</p>
             <div className='mt-12'>
               <label htmlFor="image-upload" className="px-6 py-2 bg-yellow-400 hover:bg-yellow-300 text-white rounded-md cursor-pointer">
                 Choose File

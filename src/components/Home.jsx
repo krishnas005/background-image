@@ -3,44 +3,50 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import gif from '../Photos/remove.bg.gif';
+import { UserAuth } from '../context/AuthContext';
 
 export default function BgRemover() {
+  const { user, googleSignIn, logout } = UserAuth();
   const [image, setImage] = useState(null);
   const [bgRemove, setBgRemove] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
 
   const handleChanges = () => {
-    setLoading(true);
-    setShowOverlay(true);
+    if (user) {
+      setLoading(true);
+      setShowOverlay(true);
 
-    const apiKey = "c5vTNSwhng2NwayLXacEoNUw";
-    const url = "https://api.remove.bg/v1.0/removebg";
+      const apiKey = "c5vTNSwhng2NwayLXacEoNUw";
+      const url = "https://api.remove.bg/v1.0/removebg";
 
-    const formData = new FormData();
-    formData.append("image_file", image, image.name);
-    formData.append("size", "auto");
+      const formData = new FormData();
+      formData.append("image_file", image, image.name);
+      formData.append("size", "auto");
 
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "X-Api-Key": apiKey,
-      },
-      body: formData,
-    })
-      .then((res) => res.blob())
-      .then((blob) => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          setBgRemove(reader.result);
-          setLoading(false);
-        };
-        reader.readAsDataURL(blob);
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "X-Api-Key": apiKey,
+        },
+        body: formData,
       })
-      .catch((error) => {
-        setLoading(false);
-        console.error(error);
-      });
+        .then((res) => res.blob())
+        .then((blob) => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            setBgRemove(reader.result);
+            setLoading(false);
+          };
+          reader.readAsDataURL(blob);
+        })
+        .catch((error) => {
+          setLoading(false);
+          console.error(error);
+        });
+    } else {
+      alert("You must need to login first!");
+    }
   };
 
   const handleDownload = () => {
@@ -59,7 +65,7 @@ export default function BgRemover() {
     <main className="flex min-h-screen flex-col items-center justify-between p-4 md:p-24 max-sm:m-12" id="home">
       {image && (
         <div className="fixed inset-0 bg-gray-900 bg-opacity-30 z-50 flex items-center justify-center">
-          <div className="w-full h-full absolute top-0 left-0 backdrop-filter backdrop-blur-md flex items-center justify-center">
+          <div className="w-full h-full absolute top-0 left-0 backdrop-filter backdrop-blur-sm flex items-center justify-center">
             <div className="w-96 h-96 relative">
               <Image
                 className="w-full h-full object-cover rounded-lg"
@@ -74,12 +80,12 @@ export default function BgRemover() {
                 X
               </button>
               <div className='ml-14 pl-7'>
-              <button
-                className="absolute bottom-4 px-6 py-2  bg-yellow-400 hover:bg-yellow-300  text-white rounded-md cursor-pointer"
-                onClick={handleChanges}
-              >
-                Remove Background
-              </button>
+                <button
+                  className="absolute bottom-4 px-6 py-2  bg-yellow-400 hover:bg-yellow-300  text-white rounded-md cursor-pointer"
+                  onClick={handleChanges}
+                >
+                  Remove Background
+                </button>
               </div>
             </div>
           </div>

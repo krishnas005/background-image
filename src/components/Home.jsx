@@ -73,14 +73,14 @@ export default function BgRemover() {
               >
                 X
               </button>
-             <div className='ml-14 pl-7'>
-             <button
+              <div className='ml-14 pl-7'>
+              <button
                 className="absolute bottom-4 px-6 py-2  bg-yellow-400 hover:bg-yellow-300  text-white rounded-md cursor-pointer"
                 onClick={handleChanges}
               >
                 Remove Background
               </button>
-             </div>
+              </div>
             </div>
           </div>
         </div>

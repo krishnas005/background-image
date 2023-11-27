@@ -4,7 +4,7 @@ export function middleware(request: NextRequest) {
 
   const path = request.nextUrl.pathname;
   const isLoginPage = path === '/login';
-  const isProfilePage = path === '/profile';
+  const isProfilePage = path === '/logout';
   const token = request.cookies.get('token')?.value || '';
 
   if (!token && isProfilePage) {

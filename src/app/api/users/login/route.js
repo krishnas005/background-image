@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
-import jwt from 'jsonwebtoken';
+// import jwt from 'jsonwebtoken';
 import { connect } from '@/bin/dbConfig';
 import User from '@/models/userModel';
 import bcryptjs from 'bcryptjs';
+// var jwt  = require('jsonwebtoken')
 
 connect();
 
@@ -22,19 +23,19 @@ export async function POST(request) {
       return NextResponse.json({ message: 'Invalid Password' }, { status: 400 });
     }
 
-    const tokenData = {
-      id: user._id,
-      email: user.email,
-      username: user.username,
-    };
+    // const tokenData = {
+    //   id: user._id,
+    //   email: user.email,
+    //   username: user.username,
+    // };
 
-    const tokenSecret = process.env.TOKEN_SECRET || 'defaultSecretKey';
+    // const tokenSecret = process.env.TOKEN_SECRET || 'defaultSecretKey';
 
-    if (!tokenSecret || tokenSecret === 'defaultSecretKey') {
-      console.error('Warning: Using default or missing TOKEN_SECRET. Please set a strong secret key.');
-    }
+    // if (!tokenSecret || tokenSecret === 'defaultSecretKey') {
+    //   console.error('Warning: Using default or missing TOKEN_SECRET. Please set a strong secret key.');
+    // }
 
-    const token = await jwt.sign(tokenData, tokenSecret, { expiresIn: '1h' });
+    // var token = jwt.sign(tokenData, tokenSecret, { expiresIn: '1h' });
 
     const response = NextResponse.json({
       message: 'Login successful',

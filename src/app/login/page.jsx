@@ -4,10 +4,13 @@ import Link from 'next/link';
 import React from 'react';
 import {useRouter} from 'next/navigation';
 import Navbar from '@/components/Navbar';
+import { UserAuth } from '@/context/AuthContext'
 
 const LoginPage = () => {
 
-  const [user,setUser] = React.useState({
+  const {user,googleSignIn, logout} = UserAuth();
+
+  const [users,setUser] = React.useState({
     username: "",
     password: ""
   })
@@ -16,7 +19,7 @@ const LoginPage = () => {
 
   const onSubmit  = async(e) => {
     e.preventDefault();
-    if (!user.username || !user.password) {
+    if (!users.username || !users.password) {
       alert('All fields are required');
       return;
     }
@@ -32,6 +35,7 @@ const LoginPage = () => {
       });
 
       if (res.ok) {
+        // localStorage.setItem('token',res.token);
         router.push('/');
       } else {
         const errorData = await res.json();
@@ -48,7 +52,7 @@ const LoginPage = () => {
     <div className="pb-14">
     <Navbar />
     </div>
-    <div className='pt-8'>
+    {!user ? (<div className='pt-8'>
     <div className = "max-w-md mx-auto mt-14 p-6 border rounded shadow-lg bg-gray-100 ">
       <h1 className="text-2xl font-bold mb-4 text-center text-blue-800">Login</h1>
       <form onSubmit={onSubmit}>
@@ -58,10 +62,10 @@ const LoginPage = () => {
             type="username"
             id="username"
             name="username"
-            value={user.username}
+            value={users.username}
             required
             className="border border-gray-300 p-2 w-full"
-            onChange={(e) => setUser({...user,username:e.target.value})}
+            onChange={(e) => setUser({...users,username:e.target.value})}
           />
         </div>
         <div className="mb-4">
@@ -70,17 +74,17 @@ const LoginPage = () => {
             type="password"
             id="password"
             name="password"
-            value={user.password}
+            value={users.password}
             required
             className="border border-gray-300 p-2 w-full"
-            onChange={(e) => setUser({...user,password:e.target.value})}
+            onChange={(e) => setUser({...users,password:e.target.value})}
           />
         </div>
         <div className='text-center'><button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Login</button></div>
       </form>
       <div className='text-center mt-4'><span>Don&apos;t have an account?</span><Link className='text-blue-600' href={'/signup'}> Create an account</Link></div>
     </div>
-    </div>
+    </div>) : (<div className='flex justify-center mt-44 text-4xl text-blue-600 text-semibold'>You are already logged in!</div>)}
     </>
   );
 };

@@ -76,7 +76,7 @@ const Navbar = () => {
 
             <>
             {!user ? (
-        <button onClick={handleSignIN} className={`${path === '/login' || path === '/signup' ? 'hidden' : 'text-[16px] cursor-pointer px-4 py-2 border-2 border-yellow-400 rounded-lg hover:text-yellow-600'}`}>Login</button>
+        <button onClick={handleSignIN} className={`${ path === '/logout' ? 'hidden' : 'text-[16px] cursor-pointer px-4 py-2 border-2 border-yellow-400 rounded-lg hover:text-yellow-600'}`}>Login</button>
       ) : (
         <div className="relative">
           <FaRegUserCircle size='30px' onClick={handleIconClick} className="cursor-pointer" />

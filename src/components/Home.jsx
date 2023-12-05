@@ -1,16 +1,21 @@
 'use client';
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import gif from '../Photos/remove.bg.gif';
 import { UserAuth } from '../context/AuthContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function BgRemover() {
-  const { user, googleSignIn, logout } = UserAuth();
+  const { user } = UserAuth();
   const [image, setImage] = useState(null);
   const [bgRemove, setBgRemove] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
+
+  const router = useRouter();
 
   const handleChanges = () => {
     if (user) {
@@ -45,7 +50,9 @@ export default function BgRemover() {
           console.error(error);
         });
     } else {
-      alert("You must need to login first!");
+      router.push('/');
+      toast.error("You must need to login first!");
+      setImage(null)
     }
   };
 
@@ -160,6 +167,9 @@ export default function BgRemover() {
           </div>
         </div>
       </div>
+      <ToastContainer
+      position="bottom-right"
+      />
     </main>
   );
 }

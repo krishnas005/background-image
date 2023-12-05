@@ -66,6 +66,7 @@ export default function BgRemover() {
   const handleClose = () => {
     setShowOverlay(false);
     setBgRemove(null);
+    setImage(null);
   };
 
   return (

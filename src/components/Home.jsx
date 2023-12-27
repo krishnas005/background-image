@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function BgRemover() {
+  
   const { user } = UserAuth();
   const [image, setImage] = useState(null);
   const [bgRemove, setBgRemove] = useState(null);

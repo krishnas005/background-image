@@ -18,7 +18,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#f6f6f6] text-gray-800 px-4 py-6 md:px-16">
       <div className="container mx-auto">
-        <div className="grid grid-cols-2 gap-[1150px]" >
+        <div className="flex justify-around" >
           {/* <div>
             <h3 className="text-xl font-bold mb-4 text-yellow-400">About Us</h3>
             <p className="text-gray-600">
